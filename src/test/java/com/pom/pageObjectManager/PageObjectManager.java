@@ -3,6 +3,8 @@ package com.pom.pageObjectManager;
 import com.pom.homePage.HomePage;
 import com.pom.loginPage.LoginPageEmail;
 import com.pom.loginPage.LoginPagePassWord;
+import com.pom.search.SearchKeyWords;
+import com.pom.sortOption.SortBookFollowOptions;
 import org.openqa.selenium.WebDriver;
 
 public class PageObjectManager {
@@ -10,22 +12,35 @@ public class PageObjectManager {
     private HomePage homePage;
     private LoginPageEmail loginPageEmail;
     private LoginPagePassWord loginPagePassWord;
+    private SearchKeyWords searchKeyWord;
+    private SortBookFollowOptions sortBookFollowOptions;
 
-
+    //create an object of the page object manager
     public PageObjectManager(WebDriver driver){
         this.driver = driver;
     }
-
+    //create an instance of home page
     public HomePage getHomePage(){
         return (homePage == null)? homePage = new HomePage(driver):homePage;
     }
 
+    //create an instance of Login email page
     public LoginPageEmail getLoginPageEmail(){
         return (loginPageEmail == null)? loginPageEmail = new LoginPageEmail(driver) :loginPageEmail;
     }
 
+    //create an instance of Login password page
     public LoginPagePassWord getLogOutPagePassword(){
         return (loginPagePassWord == null)? loginPagePassWord = new LoginPagePassWord(driver):loginPagePassWord;
+    }
+    //create an instance of search keyword page
+    public SearchKeyWords getSearchKeyWord(){
+        return (searchKeyWord == null)? searchKeyWord = new SearchKeyWords(driver):searchKeyWord;
+    }
+
+    //create an instance of sort following options
+    public SortBookFollowOptions getSortOption(){
+        return (sortBookFollowOptions == null)? sortBookFollowOptions = new SortBookFollowOptions(driver):sortBookFollowOptions;
     }
 
 }

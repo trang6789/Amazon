@@ -9,12 +9,13 @@ import com.utilities.webdrivers.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TestLogInSuccess extends BaseTest {
+public class TestLogInFailPassword extends BaseTest {
     private WebDriver driver;
     HomePage homePage;
     LoginPageEmail loginPageEmail;
@@ -45,36 +46,37 @@ public class TestLogInSuccess extends BaseTest {
     }
 
     @Test
-    public void loginSuccess () {
-        /***
-        * This test case will login to home page
-        * Verify email and pass to login page
-        * Login to amazon page successfully
-        * */
-
+    /***
+     * This test case will login to home page
+     * Verify valid email and invalid pass to login page
+     * Login to amazon page fail
+     * */
+    public void loginFail() {
         logger.info("Inside login test ");
         logger.info("Navigate to Login page");
-
-        //Navigate to home page
         homePage.navigateTo_HomePage(driver);
         logger.info("Click on login button");
-
         // method click Login button
         homePage.clickOn_LoginButton();
 
-        // method input valid email
+        // method input email
         loginPageEmail.fillSuccess_LoginEmail();
         // method submit button
         loginPageEmail.clickOn_SubmitButton();
 
-        // method input valid password
-        loginPagePassWord.fillSuccess_LoginPassWord();
+        // method input invalid password
+        loginPagePassWord.fillFail_LoginPassWord();
         // method submit button
         loginPagePassWord.clickOn_SubmitButton();
 
+        //Get error message
+        loginPagePassWord.errorMessage();
+        String actualResult = "Your password is incorrect";
+        String expectedResult = "Your password is incorrect";
+
         //System.out.println(System.getProperty("user.dir"));
-        Assert.assertEquals(true,true);
-        logger.debug("Login successfully executed ");
+        Assert.assertEquals(actualResult,expectedResult);
+        logger.debug("Login failure executed ");
 
 
     }

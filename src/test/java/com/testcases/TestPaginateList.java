@@ -2,9 +2,8 @@ package com.testcases;
 
 import com.base.BaseTest;
 import com.pom.homePage.HomePage;
-import com.pom.loginPage.LoginPageEmail;
-import com.pom.loginPage.LoginPagePassWord;
 import com.pom.pageObjectManager.PageObjectManager;
+import com.pom.search.SearchKeyWords;
 import com.utilities.webdrivers.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,14 +13,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TestLogInSuccess extends BaseTest {
+public class TestPaginateList extends BaseTest {
+
     private WebDriver driver;
     HomePage homePage;
-    LoginPageEmail loginPageEmail;
-    LoginPagePassWord loginPagePassWord;
+    SearchKeyWords searchKeyWords;
     PageObjectManager pageObjectManager;
     WebDriverManager webDriverManager;
-    private static Logger logger = LogManager.getLogger(com.testcases.TestLogInSuccess.class.getName());
+    private static Logger logger = LogManager.getLogger(TestPaginateList.class.getName());
+
 
     @BeforeClass
     public void setUp() {
@@ -30,10 +30,7 @@ public class TestLogInSuccess extends BaseTest {
         pageObjectManager = new PageObjectManager(driver);
 
         homePage = pageObjectManager.getHomePage();
-        loginPageEmail = pageObjectManager.getLoginPageEmail();
-        loginPagePassWord = pageObjectManager.getLogOutPagePassword();
-
-
+        searchKeyWords = pageObjectManager.getSearchKeyWord();
     }
 
     @AfterClass
@@ -45,37 +42,28 @@ public class TestLogInSuccess extends BaseTest {
     }
 
     @Test
-    public void loginSuccess () {
-        /***
-        * This test case will login to home page
-        * Verify email and pass to login page
-        * Login to amazon page successfully
-        * */
-
+    /***
+     * This test case will find department (Books) on home page
+     * Send key word (apple) in search field
+     * Search result successfully for key word
+     * Verify displays exactly 16 items on each page
+     * */
+    public void loginAsManager () {
         logger.info("Inside login test ");
         logger.info("Navigate to Login page");
-
-        //Navigate to home page
         homePage.navigateTo_HomePage(driver);
-        logger.info("Click on login button");
-
-        // method click Login button
-        homePage.clickOn_LoginButton();
-
-        // method input valid email
-        loginPageEmail.fillSuccess_LoginEmail();
-        // method submit button
-        loginPageEmail.clickOn_SubmitButton();
-
-        // method input valid password
-        loginPagePassWord.fillSuccess_LoginPassWord();
-        // method submit button
-        loginPagePassWord.clickOn_SubmitButton();
+        searchKeyWords.select_Department();
+        searchKeyWords.fill_Keyword();
+        searchKeyWords.searchKeyWord();
+        searchKeyWords.select_Language();
 
         //System.out.println(System.getProperty("user.dir"));
         Assert.assertEquals(true,true);
-        logger.debug("Login successfully executed ");
+        logger.debug("Search successfully executed ");
 
+        boolean actual = searchKeyWords.select_Pagination();
+        Assert.assertEquals(actual,true);
+        logger.debug("Items display correctly ");
 
     }
 }
