@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPagePassWord extends AbstractBasePage {
-    //Constructor of class LoginPageEmail
+    //Constructor of class LoginPagePassWord
     // To initialize elements.
     public LoginPagePassWord(WebDriver driver) {
         super(driver);

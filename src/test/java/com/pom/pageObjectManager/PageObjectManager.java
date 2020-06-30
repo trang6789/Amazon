@@ -3,6 +3,7 @@ package com.pom.pageObjectManager;
 import com.pom.homePage.HomePage;
 import com.pom.loginPage.LoginPageEmail;
 import com.pom.loginPage.LoginPagePassWord;
+import com.pom.resultSort.ResultSortDate;
 import com.pom.search.SearchKeyWords;
 import com.pom.sortOption.SortBookFollowOptions;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ public class PageObjectManager {
     private LoginPagePassWord loginPagePassWord;
     private SearchKeyWords searchKeyWord;
     private SortBookFollowOptions sortBookFollowOptions;
+    private ResultSortDate resultSortDate;
 
     //create an object of the page object manager
     public PageObjectManager(WebDriver driver){
@@ -41,6 +43,11 @@ public class PageObjectManager {
     //create an instance of sort following options
     public SortBookFollowOptions getSortOption(){
         return (sortBookFollowOptions == null)? sortBookFollowOptions = new SortBookFollowOptions(driver):sortBookFollowOptions;
+    }
+
+    //create an instance of sort following options
+    public ResultSortDate getSortByDate(){
+        return (resultSortDate == null)? resultSortDate = new ResultSortDate(driver):resultSortDate;
     }
 
 }

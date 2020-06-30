@@ -34,13 +34,13 @@ public class TestSortOptions extends BaseTest {
         sortBookFollowOptions = pageObjectManager.getSortOption();
     }
 
-//    @AfterClass
-//    public void tearDown() {
-//        if(driver != null) {
-//            driver.quit();
-//            driver = null;
-//        }
-//    }
+    @AfterClass
+    public void tearDown() {
+        if(driver != null) {
+            driver.quit();
+            driver = null;
+        }
+    }
 
     @Test
     /***
@@ -51,24 +51,32 @@ public class TestSortOptions extends BaseTest {
     public void loginAsManager () {
         logger.info("Inside login test ");
         logger.info("Navigate to Login page");
+        //navigate to home page
         homePage.navigateTo_HomePage(driver);
+
+        //select department on search text box
         sortBookFollowOptions.select_Department();
+
+        //fill key word on search text box
         sortBookFollowOptions.fill_Keyword();
+
+        //fill key word on search text box
         sortBookFollowOptions.searchKeyWord();
+
+        //search key word on search text box
         sortBookFollowOptions.select_Language();
-        //sortBookFollowOptions.click_SortByButton();
-        //sortBookFollowOptions.select_SortOption();
-        sortBookFollowOptions.fill_SortOption();
-        Assert.assertEquals(true,true);
 
+        //click on sort feature button
+        sortBookFollowOptions.click_SortButton();
 
-        //System.out.println(System.getProperty("user.dir"));
-//        String actual = sortBookFollowOptions.check_SortOptionName();
-//        actual = "Publication Date";
-//        Assert.assertEquals(actual,"Publication Date");
+        //chose option for feature
+        sortBookFollowOptions.click_ChoseOption();
+
+        //check condition
+        String actual = sortBookFollowOptions.check_SortOptionName();
+        actual = "Publication Date";
+        Assert.assertEquals(actual,"Publication Date");
         logger.debug("Sort successfully executed ");
-
-
 
     }
 }

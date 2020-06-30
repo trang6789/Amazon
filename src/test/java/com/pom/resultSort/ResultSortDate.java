@@ -1,4 +1,4 @@
-package com.pom.sortOption;
+package com.pom.resultSort;
 
 import com.basepage.AbstractBasePage;
 import org.openqa.selenium.WebDriver;
@@ -7,11 +7,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class SortBookFollowOptions extends AbstractBasePage {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+public class ResultSortDate extends AbstractBasePage {
     WebElement driver;
-    //Constructor of class LoginPageEmail
+    //Constructor of class ResultSortDate
     // To initialize elements.
-    public SortBookFollowOptions(WebDriver driver) {
+    public ResultSortDate(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
@@ -53,6 +57,9 @@ public class SortBookFollowOptions extends AbstractBasePage {
     @FindBy(xpath = "//*[@class='a-dropdown-prompt']")
     private WebElement txt_sortBy;
 
+    //Locator of sort date
+    @FindBy(xpath = "//*[@class='a-size-base a-color-secondary a-text-normal']")
+    private List<WebElement> sortDateList;
 
 
     /***
@@ -93,10 +100,37 @@ public class SortBookFollowOptions extends AbstractBasePage {
     public void click_ChoseOption() {
         clickButton(opt_PublicationDate);
     }
+
     //String name of option
     public String check_SortOptionName() {
         IsEnabledElement(txt_sortBy);
         return null;
     }
 
+    public void check_sortDate() throws ParseException {
+        List<Date> listDates = new ArrayList<Date>();
+
+        //Convert the text into time
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("mmm dd, yyyy");
+        for(WebElement we:sortDateList)
+        {
+            listDates.add(dateFormatter.parse(we.getText()));
+        }
+
+        //Put all the collected time into a array list
+        ArrayList<Date> sortedList = new ArrayList<>();
+        for(Date s:listDates){
+
+            sortedList.add(s);
+
+        }
+
+        // Compare date in list
+        Collections.sort(sortedList, new Comparator<Date>() {
+            @Override
+            public int compare(Date o1, Date o2) {
+                return o1.compareTo(o2);
+            }
+        });
+    }
 }

@@ -54,18 +54,21 @@ public class TestLogInFailPassword extends BaseTest {
     public void loginFail() {
         logger.info("Inside login test ");
         logger.info("Navigate to Login page");
+        //navigate to home page
         homePage.navigateTo_HomePage(driver);
         logger.info("Click on login button");
-        // method click Login button
+
+        // click Login button
         homePage.clickOn_LoginButton();
 
-        // method input email
+        // input valid email
         loginPageEmail.fillSuccess_LoginEmail();
         // method submit button
         loginPageEmail.clickOn_SubmitButton();
 
-        // method input invalid password
+        // input invalid password
         loginPagePassWord.fillFail_LoginPassWord();
+
         // method submit button
         loginPagePassWord.clickOn_SubmitButton();
 
@@ -74,7 +77,7 @@ public class TestLogInFailPassword extends BaseTest {
         String actualResult = "Your password is incorrect";
         String expectedResult = "Your password is incorrect";
 
-        //System.out.println(System.getProperty("user.dir"));
+        //check condition
         Assert.assertEquals(actualResult,expectedResult);
         logger.debug("Login failure executed ");
 

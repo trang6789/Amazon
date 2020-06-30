@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SearchKeyWords extends AbstractBasePage {
     WebElement driver;
-    //Constructor of class LoginPageEmail
+    //Constructor of class SearchKeyWords
     // To initialize elements.
     public SearchKeyWords(WebDriver driver) {
         super(driver);

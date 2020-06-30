@@ -13,16 +13,16 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="com.TNG.testCase.LoginTest" level="info" additivity="false">
+        <Logger name="com.testcases.TestLogInSuccess" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="com.TNG.testCase.LogoutTest" level="info" additivity="false">
+        <Logger name="com.testcases.TestLogInFailPassword" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="com.TNG.testCase.SearchCourceTest" level="info" additivity="false">
+        <Logger name="com.testcases.TestPaginateList" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="com.TNG.testCase.CourseDetail" level="info" additivity="false">
+        <Logger name="com.testcases.TestSortOptions" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="info">

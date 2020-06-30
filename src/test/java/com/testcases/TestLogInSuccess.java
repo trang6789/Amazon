@@ -59,20 +59,22 @@ public class TestLogInSuccess extends BaseTest {
         homePage.navigateTo_HomePage(driver);
         logger.info("Click on login button");
 
-        // method click Login button
+        // click Login button
         homePage.clickOn_LoginButton();
 
-        // method input valid email
+        // input valid email
         loginPageEmail.fillSuccess_LoginEmail();
-        // method submit button
+
+        // submit button
         loginPageEmail.clickOn_SubmitButton();
 
-        // method input valid password
+        //input valid password
         loginPagePassWord.fillSuccess_LoginPassWord();
-        // method submit button
+
+        // submit button
         loginPagePassWord.clickOn_SubmitButton();
 
-        //System.out.println(System.getProperty("user.dir"));
+        //check condition
         Assert.assertEquals(true,true);
         logger.debug("Login successfully executed ");
 
