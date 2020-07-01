@@ -1,0 +1,14 @@
+com\pom\homePage\HomePage.class
+com\pom\loginPage\LoginPageEmail.class
+com\testcases\TestLogInFailPassword.class
+com\testcases\TestLogInSuccess.class
+com\pom\BookInPagination\CountNumberOFBooks.class
+com\testcases\SortByDate.class
+com\testcases\TestSortOptions.class
+com\pom\resultSort\ResultSortDate.class
+com\basepage\AbstractBasePage.class
+com\pom\pageObjectManager\PageObjectManager.class
+com\pom\resultSort\ResultSortDate$1.class
+com\testcases\TestPaginateList.class
+com\pom\sortOption\SortBookFollowOptions.class
+com\pom\loginPage\LoginPagePassWord.class

@@ -3,7 +3,7 @@ package com.testcases;
 import com.base.BaseTest;
 import com.pom.homePage.HomePage;
 import com.pom.pageObjectManager.PageObjectManager;
-import com.pom.search.SearchKeyWords;
+import com.pom.BookInPagination.CountNumberOFBooks;
 import com.utilities.webdrivers.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +17,7 @@ public class TestPaginateList extends BaseTest {
 
     private WebDriver driver;
     HomePage homePage;
-    SearchKeyWords searchKeyWords;
+    CountNumberOFBooks countNumberOFBooks;
     PageObjectManager pageObjectManager;
     WebDriverManager webDriverManager;
     private static Logger logger = LogManager.getLogger(TestPaginateList.class.getName());
@@ -30,7 +30,7 @@ public class TestPaginateList extends BaseTest {
         pageObjectManager = new PageObjectManager(driver);
 
         homePage = pageObjectManager.getHomePage();
-        searchKeyWords = pageObjectManager.getSearchKeyWord();
+        countNumberOFBooks = pageObjectManager.getSearchKeyWord();
     }
 
     @AfterClass
@@ -55,23 +55,29 @@ public class TestPaginateList extends BaseTest {
         homePage.navigateTo_HomePage(driver);
 
         //select department on search text box
-        searchKeyWords.select_Department();
+        countNumberOFBooks.select_Department();
 
         //fill key word on search text box
-        searchKeyWords.fill_Keyword();
+        countNumberOFBooks.fill_Keyword();
 
         //search key word on search text box
-        searchKeyWords.searchKeyWord();
+        countNumberOFBooks.searchKeyWord();
 
         //select language
-        searchKeyWords.select_Language();
+        countNumberOFBooks.select_Language();
 
         //check condition
-        Assert.assertEquals(true,true);
+        countNumberOFBooks.ResultsofBooks();
+        Assert.assertEquals("English","English");
         logger.debug("Search successfully executed ");
 
         //check condition
-        boolean actual = searchKeyWords.select_Pagination();
+        boolean actual = countNumberOFBooks.check_BookNumber();
+        Assert.assertEquals(actual,true);
+        logger.debug("Items display correctly ");
+
+        countNumberOFBooks.select_NextPage();
+        countNumberOFBooks.check_BookNumber();
         Assert.assertEquals(actual,true);
         logger.debug("Items display correctly ");
 

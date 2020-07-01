@@ -112,9 +112,9 @@ public class ResultSortDate extends AbstractBasePage {
 
         //Convert the text into time
         SimpleDateFormat dateFormatter = new SimpleDateFormat("mmm dd, yyyy");
-        for(WebElement we:sortDateList)
+        for(WebElement date:sortDateList)
         {
-            listDates.add(dateFormatter.parse(we.getText()));
+            listDates.add(dateFormatter.parse(date.getText()));
         }
 
         //Put all the collected time into a array list

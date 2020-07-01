@@ -3,7 +3,6 @@ package com.testcases;
 import com.base.BaseTest;
 import com.pom.homePage.HomePage;
 import com.pom.pageObjectManager.PageObjectManager;
-import com.pom.search.SearchKeyWords;
 import com.pom.sortOption.SortBookFollowOptions;
 import com.utilities.webdrivers.WebDriverManager;
 import org.apache.logging.log4j.LogManager;

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression" parallel="tests">
+
+    <listeners>
+        <listener class-name="com.utilities.reports.testngListener"/>
+    </listeners>
+
+    <test name="LoginSuccess">
+        <classes>
+            <class name="com.testcases.TestLogInSuccess"/>
+        </classes>
+    </test>
+    <test name =" LoginFailPassword">
+        <classes>
+            <class name="com.testcases.TestLogInFailPassword"></class>
+        </classes>
+    </test>
+    <test name =" PaginateList">
+        <classes>
+            <class name="com.testcases.TestPaginateList"></class>
+        </classes>
+    </test>
+    <test name =" SortOption">
+        <classes>
+            <class name="com.testcases.TestSortOptions"></class>
+        </classes>
+    </test>
+    <test name ="SortByDate">
+    <classes>
+        <class name="com.testcases.SortByDate"></class>
+    </classes>
+    </test>
+
+</suite> <!-- Suite -->

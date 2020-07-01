@@ -4,7 +4,7 @@ import com.pom.homePage.HomePage;
 import com.pom.loginPage.LoginPageEmail;
 import com.pom.loginPage.LoginPagePassWord;
 import com.pom.resultSort.ResultSortDate;
-import com.pom.search.SearchKeyWords;
+import com.pom.BookInPagination.CountNumberOFBooks;
 import com.pom.sortOption.SortBookFollowOptions;
 import org.openqa.selenium.WebDriver;
 
@@ -13,7 +13,7 @@ public class PageObjectManager {
     private HomePage homePage;
     private LoginPageEmail loginPageEmail;
     private LoginPagePassWord loginPagePassWord;
-    private SearchKeyWords searchKeyWord;
+    private CountNumberOFBooks searchKeyWord;
     private SortBookFollowOptions sortBookFollowOptions;
     private ResultSortDate resultSortDate;
 
@@ -36,8 +36,8 @@ public class PageObjectManager {
         return (loginPagePassWord == null)? loginPagePassWord = new LoginPagePassWord(driver):loginPagePassWord;
     }
     //create an instance of search keyword page
-    public SearchKeyWords getSearchKeyWord(){
-        return (searchKeyWord == null)? searchKeyWord = new SearchKeyWords(driver):searchKeyWord;
+    public CountNumberOFBooks getSearchKeyWord(){
+        return (searchKeyWord == null)? searchKeyWord = new CountNumberOFBooks(driver):searchKeyWord;
     }
 
     //create an instance of sort following options
